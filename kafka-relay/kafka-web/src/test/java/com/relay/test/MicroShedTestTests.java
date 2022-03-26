@@ -19,8 +19,8 @@ public class MicroShedTestTests {
     @RESTClient
     public static ConsumerResource consumerResource;
 
-    @KafkaProducerClient(valueSerializer = SystemLoad.SystemLoadSerializer.class)
-    public static KafkaProducer<String, SystemLoad> producer;
+//    @KafkaProducerClient(valueSerializer = SystemLoad.SystemLoadSerializer.class)
+//    public static KafkaProducer<String, SystemLoad> producer;
 
 //    @Test
 //    public void testCpuUsage() throws InterruptedException {
