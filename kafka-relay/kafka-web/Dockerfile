@@ -18,6 +18,8 @@ LABEL \
 
 COPY --chown=1001:0 src/main/liberty/config /config/
 COPY --chown=1001:0 target/kafka-web.war /config/apps
+COPY --chown=1001:0 src/main/liberty/config/resources/security/key.p12 /opt/ol/wlp/output/defaultServer/resources/security/key.p12
+
 
 EXPOSE 9080 9443 8787
 
