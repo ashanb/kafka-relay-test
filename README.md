@@ -9,12 +9,12 @@ Technologies Used:
 - JWT Token Validation
 - Distributed DB Yugabyte (Cassandra, Postgres and Redis)
 
-Testing Tools
+Testing Tools Used
 - Junit
 - Postman
 - Jmeter
 
-Third Part Helper Tools
+Third Part Helper Tools Used
 
 - Inteliji 
 - DBeaver Lite 22.0.0
@@ -137,28 +137,26 @@ Be mindful to add the time as UTC (it like that at the moment :))
 ***Architecuture
 
 - Backend server container based application.
+- Code Written as maven modules to easy readabilty and separate the purpose.
+- Toeken Validation is not a direct part of this project, that's why it's in boot :)
 - Yugabyte taken as the database as it contains all three dbs (NoSQL: Cassandra, Relational: Postgress, In Mememory: Redis)
-- Cassandra DB taken to store the Incoming IOT Data (iot_event_data_tab)
+- Cassandra DB taken to store the Incoming IOT Data (iot_event_data_tab), Cassandra known for FAST DB Writes.
 
  ![image](https://user-images.githubusercontent.com/3264237/160289185-99de1c98-11ff-41d2-8c61-78db25af73ae.png)
 
-- Postgress DB thought to use as persistent Event Model Information Storing (I couldn't complete :/)
-- Redis DB thought to main fast access cache Event Model files (I couldn't complete :/)
-- Idea was to flush the Redis DB in a event of staructure change.
+- Thought to use "Postgress DB" as persistent Event Model information storing. (but couldn't complete :/)
+- Thought to use "Redis DB" as fast access cache Event Model file store (but couldn't complete :/), Idea was to flush the Redis DB in a event of staructure change.
 
 ***Limitations
 
 - Can not dynamically update event model files, but can be improved with above design architecure.
-- I have tested with large set load of events, but at the moment there is no load balancing or scale up functinality.
-
+- I have tested with large set of events, it worked, but at the moment there is no load balancing or auto scale up functinality.
 
 ***Improvements
 
-- Dynamically update event model files
-- Add more integration tets (automatted)
+- Dynamically update event model files.
+- Maintain In Memeory Event Model cache.
+- Add more integration tets (automatted).
 - Code Coverage with Sonar Cloud etc.
-
-
-
-
-
+- Run Trivy Container Scan.
+- Run Dependency Scan.
