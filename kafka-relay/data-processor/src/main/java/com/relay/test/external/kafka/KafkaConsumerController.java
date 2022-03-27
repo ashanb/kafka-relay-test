@@ -2,6 +2,7 @@ package com.relay.test.external.kafka;
 
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Session;
+import com.relay.test.ApiRequest;
 import com.relay.test.internal.CassandraSessionProvider;
 import com.relay.test.internal.DatabaseAccessUtil;
 import org.apache.kafka.clients.consumer.Consumer;
@@ -10,6 +11,8 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.common.errors.WakeupException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.ResourceBundle;
 
 // require thread safe operations!
 public class KafkaConsumerController {
@@ -42,7 +45,8 @@ public class KafkaConsumerController {
             System.out.println("###### Listening to Topic ######");
         }
 
-        CassandraSessionProvider cassandraSessionProvider = new CassandraSessionProvider("host.docker.internal", 9042);
+        final CassandraSessionProvider cassandraSessionProvider =
+                new CassandraSessionProvider(ApiRequest.getCassandraHost(), ApiRequest.getCassandraPort());
 
 //        int noMessageToFetch = 0;
         try (final Cluster cluster = cassandraSessionProvider.getCluster(); final Session session = cluster.connect()) {
@@ -88,4 +92,13 @@ public class KafkaConsumerController {
             return "Consumer Already Stopped";
         }
     }
+
+    public static void createModels() {
+        final CassandraSessionProvider cassandraSessionProvider =
+                new CassandraSessionProvider(ApiRequest.getCassandraHost(), ApiRequest.getCassandraPort());
+        try (final Cluster cluster = cassandraSessionProvider.getCluster(); final Session session = cluster.connect()) {
+            DatabaseAccessUtil.createModels(session);
+        }
+    }
+
 }

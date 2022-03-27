@@ -43,7 +43,7 @@ public class DatabaseAccessUtil {
         final BigDecimal value = (BigDecimal) jsonObject.get("value");
         final Boolean initialized = (Boolean) jsonObject.get("initialized");
 
-        final String insert = "INSERT INTO relay.iot_humidity_data_tab (id_, cluster_id_, type_, name_, timestamp_, value_, initialized_) VALUES (?,?,?,?,?,?,?)";
+        final String insert = "INSERT INTO relay.iot_event_data_tab (id_, cluster_id_, type_, name_, timestamp_, value_, initialized_) VALUES (?,?,?,?,?,?,?)";
         final PreparedStatement ps = session.prepare(insert);
         final BoundStatement bound = ps.bind().setLong(0, id).setLong(1, clusterId).setString(2, type).setString(3, name).setTimestamp(4, timestamp).setDouble(5, value.floatValue()).setBool(6, initialized);
         session.execute(bound);
@@ -59,7 +59,7 @@ public class DatabaseAccessUtil {
     }
 
     public static String getAggregateValueFromCassandra(String type, Long clusterId, Session session, String from, String to, OperationType operationType) {
-        final String dbSQL = "select ## from relay.iot_humidity_data_tab where timestamp_ > ? and timestamp_ < ?";
+        final String dbSQL = "select ## from relay.iot_event_data_tab where timestamp_ > ? and timestamp_ < ?";
 
         final String aggregate;
 
@@ -113,6 +113,21 @@ public class DatabaseAccessUtil {
         System.out.println(out);
         return out.toString();
     }
+
+    public static void createModels(Session session) {
+        // Create keyspace 'relay' if it does not exist.
+        String createKeyspace = "CREATE KEYSPACE IF NOT EXISTS relay;";
+        session.execute(createKeyspace);
+        System.out.println("Created keyspace relay");
+
+        // Create table 'iot_humidity_data_tab' if it does not exist.
+        String createTable = "CREATE TABLE IF NOT EXISTS relay.iot_event_data_tab (id_ bigint, cluster_id_ bigint, type_ varchar, name_ varchar, timestamp_ TIMESTAMP, " +
+                "value_ double, initialized_ boolean, PRIMARY KEY (id_, timestamp_));";
+
+        session.execute(createTable);
+        System.out.println("Created table iot_event_data_tab");
+    }
+
 
     // TODO: 3/27/2022 remove 
     public static void main(String[] args) {
