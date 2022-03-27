@@ -1,7 +1,12 @@
 <server description="Intro REST Guide Liberty server">
   <featureManager>
       <feature>jaxrs-2.1</feature>
+      <!-- tag::mpJwt[] -->
+      <feature>mpJwt-1.2</feature>
+      <!-- end::mpJwt[] -->
   </featureManager>
+
+  <keyStore id="defaultKeyStore" password="secret"/>
 
   <httpEndpoint httpPort="${default.http.port}" httpsPort="${default.https.port}"
                 id="defaultHttpEndpoint" host="*" />

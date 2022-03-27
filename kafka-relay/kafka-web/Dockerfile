@@ -4,10 +4,10 @@ ARG VERSION=1.0
 ARG REVISION=SNAPSHOT
 
 LABEL \
-  org.opencontainers.image.authors="My Name" \
-  org.opencontainers.image.vendor="Open Liberty" \
+  org.opencontainers.image.authors="Ashan Bakmeedeniya" \
+  org.opencontainers.image.vendor="Relay" \
   org.opencontainers.image.url="local" \
-  org.opencontainers.image.source="https://github.com/OpenLiberty/guide-microprofile-reactive-messaging" \
+  org.opencontainers.image.source="https://github.com/ashanb/kafka-relay-test" \
   org.opencontainers.image.version="$VERSION" \
   org.opencontainers.image.revision="$REVISION" \
   vendor="Open Liberty" \
@@ -18,6 +18,8 @@ LABEL \
 
 COPY --chown=1001:0 src/main/liberty/config /config/
 COPY --chown=1001:0 target/kafka-web.war /config/apps
+COPY --chown=1001:0 src/main/liberty/config/resources/security/key.p12 /opt/ol/wlp/output/defaultServer/resources/security/key.p12
+
 
 EXPOSE 9080 9443 8787
 

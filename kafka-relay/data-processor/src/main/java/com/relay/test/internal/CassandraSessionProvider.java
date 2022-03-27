@@ -51,14 +51,12 @@ public class CassandraSessionProvider {
 //            ResultSet createResult = session.execute(createTable);
 //            System.out.println("Created table iot_data_tab");
 
-
             // Create table 'employee' if it does not exist.
             String createTable = "CREATE TABLE IF NOT EXISTS relay.iot_humidity_data_tab (id_ bigint, cluster_id_ bigint, type_ varchar, name_ varchar, timestamp_ TIMESTAMP, " +
                     "value_ double, initialized_ boolean, PRIMARY KEY (id_, timestamp_));";
 
             ResultSet createResult = session.execute(createTable);
             System.out.println("Created table iot_humidity_data_tab");
-
 
 //            // Insert a row.
 //            String insert = "INSERT INTO relay.iot_data_tab (key, value)" +
