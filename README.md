@@ -1,4 +1,4 @@
-Technologies Used:
+**Technologies Used:
 - Kafka 
 - Open Liberty 19
 - Docker
@@ -9,18 +9,18 @@ Technologies Used:
 - JWT Token Validation
 - Distributed DB Yugabyte (Cassandra, Postgres and Redis)
 
-Testing Tools Used
+**Testing Tools Used
 - Junit
 - Postman
 - Jmeter
 
-Third Part Helper Tools Used
+**Third Part Helper Tools Used
 
 - Inteliji 
 - DBeaver Lite 22.0.0
 - Table Plus
 
-How to Run the Application
+*How to Run the Application
 
 Prequists Steps
 
@@ -29,7 +29,7 @@ Prequists Steps
 docker pull yugabytedb/yugabyte:2.13.0.1-b2
 docker run -d --name yugabyte  -p7000:7000 -p9000:9000 -p5433:5433 -p9042:9042 yugabytedb/yugabyte:2.13.0.1-b2 bin/yugabyted start --daemon=false --ui=false
 
-https://download.yugabyte.com/#docker
+see: https://download.yugabyte.com/#docker
 
 2. Checkout https://github.com/operations-relay42/iot-producer-simulator-api
 
@@ -39,11 +39,12 @@ Change to 3 broakers as below
 **KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka_1:29093,PLAINTEXT_HOST://host.docker.internal:9094
 **KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka_2:29094,PLAINTEXT_HOST://host.docker.internal:9095
 
-follow steps in that project read me.
+please follow steps mentioned in that repo read_me.md.
 
 ![image](https://user-images.githubusercontent.com/3264237/160287473-0bf4af0f-a69d-4567-bc49-b048af289ff7.png)
 
 3. Install Tools
+- Docker
 - Maven
 - JDK 11
 
@@ -58,7 +59,7 @@ Run command ->  mvn clean install -Pdocker-run
 
 Notes: "CWWKF0011I: The defaultServer server is ready to run a smarter planet. The defaultServer server started in..." check this apprear in the Log.
 
-Preconfigured Port: http: 9080 , https: 9443 
+Preconfigured protocol and Port: http: 9080, https: 9443 
 
 2. Start Front End Open Liberty (Token Creator Validator endpoint)  
 
@@ -67,7 +68,7 @@ Run command ->  mvn -f .\boot\frontend\pom.xml clean install liberty:run
 
 Notes: "The defaultServer server is ready to run a smarter planet. The defaultServer server started in.." check this apprear in the log.
 
-Preconfigured Port: http: 9090 , https: 9091
+Preconfigured  protocol and Port: http: 9090, https: 9091
 
 3. Login to the application 
 
@@ -87,7 +88,7 @@ use below login pwds.
 if login success you will get something similar
 ![image](https://user-images.githubusercontent.com/3264237/160288267-1a73f086-4595-4dbe-a5d2-09c453eadbd7.png)
 
-Now copy the JWT toekn for processing.
+Copy the JWT toekn for future requests.
 
 4. Postman Collection for supported endpoints.
 Please check the uploaded postman collection file in \kafka-relay-test\kafka-relay\boot\xxx.json
@@ -138,6 +139,8 @@ Be mindful to add the time as UTC (it like that at the moment :))
 
 - Backend server container based application.
 - Code Written as maven modules to easy readabilty and separate the purpose.
+![image](https://user-images.githubusercontent.com/3264237/160290209-b63c5105-71e9-4ace-9ef7-4fc83ecefc1e.png)
+
 - Toeken Validation is not a direct part of this project, that's why it's in boot :)
 - Yugabyte taken as the database as it contains all three dbs (NoSQL: Cassandra, Relational: Postgress, In Mememory: Redis)
 - Cassandra DB taken to store the Incoming IOT Data (iot_event_data_tab), Cassandra known for FAST DB Writes.
@@ -160,3 +163,9 @@ Be mindful to add the time as UTC (it like that at the moment :))
 - Code Coverage with Sonar Cloud etc.
 - Run Trivy Container Scan.
 - Run Dependency Scan.
+
+Some Useful Referances:
+[1] https://www.yugabyte.com/
+[2] https://openliberty.io/guides/microprofile-jwt.html#configuring-microprofile-jwt
+[3] https://openliberty.io/docs/22.0.0.2/reference/feature/mpReactiveStreams-1.0.html
+[4] https://kafka.apache.org/
