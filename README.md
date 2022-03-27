@@ -33,13 +33,13 @@ see: https://download.yugabyte.com/#docker
 
 2. Checkout https://github.com/operations-relay42/iot-producer-simulator-api
 
-Update docker-compose.yml to work with dockerized enviroment
-Change to 3 broakers as below
+Update root "docker-compose.yml" as below (update 3 kafka brokers to work with outer network container/s)
+
 **KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka_0:29092,PLAINTEXT_HOST://host.docker.internal:9092
 **KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka_1:29093,PLAINTEXT_HOST://host.docker.internal:9094
 **KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka_2:29094,PLAINTEXT_HOST://host.docker.internal:9095
 
-please follow steps mentioned in that repo read_me.md.
+please follow steps mentioned in that repo read_me.md to run the Kafka Producer.
 
 ![image](https://user-images.githubusercontent.com/3264237/160287473-0bf4af0f-a69d-4567-bc49-b048af289ff7.png)
 
@@ -61,7 +61,7 @@ Notes: "CWWKF0011I: The defaultServer server is ready to run a smarter planet. T
 
 Preconfigured protocol and Port: http: 9080, https: 9443 
 
-2. Start Front End Open Liberty (Token Creator Validator endpoint)  
+2. Start Front End Openliberty Server (Token creator and validator endpoint)  
 
 cd to \kafka-relay-test\kafka-relay folder
 Run command ->  mvn -f .\boot\frontend\pom.xml clean install liberty:run
@@ -100,7 +100,8 @@ Include your JWT token inside Authorization, Bearer Token Section
 ![image](https://user-images.githubusercontent.com/3264237/160288555-cdaefe2b-0f2b-4da7-a6f7-ce3d6b8a9385.png)
 
 
-**API Endpoints :)
+**API Endpoints
+
 1) Create Base Model Tables to Store (you can call this multiple times, but it will create only once) 
 
 https://localhost:9443/relay/kafka/consumer/create-models
@@ -137,33 +138,46 @@ Be mindful to add the time as UTC (it like that at the moment :))
 
 ***Architecuture
 
-- Backend server container based application.
-- Code Written as maven modules to easy readabilty and separate the purpose.
+- Backend server is a container based application, focusing to deploy as microservice in kubernetes cluster.
+
+- Code written as maven modules to easy readabilty and separate the purpose.
 ![image](https://user-images.githubusercontent.com/3264237/160290209-b63c5105-71e9-4ace-9ef7-4fc83ecefc1e.png)
 
-- Toeken Validation is not a direct part of this project, that's why it's in boot :)
+- Token Validation is not a direct part of this project, that's why it's in boot :)
+
 - Yugabyte taken as the database as it contains all three dbs (NoSQL: Cassandra, Relational: Postgress, In Mememory: Redis)
+
 - Cassandra DB taken to store the Incoming IOT Data (iot_event_data_tab), Cassandra known for FAST DB Writes.
 ![image](https://user-images.githubusercontent.com/3264237/160290659-8b757abd-762f-42dd-8dae-ab7c39851953.png)
 
 - Thought to use "Postgress DB" as persistent Event Model information storing. (but couldn't complete :/)
+
 - Thought to use "Redis DB" as fast access cache Event Model file store (but couldn't complete :/), Idea was to flush the Redis DB in a event of staructure change.
 
 ***Limitations
 
 - Can not dynamically update event model files, but can be improved with above design architecure.
-- I have tested with large set of events, it worked, but at the moment there is no load balancing or auto scale up functinality.
+
+- I have tested with large set of events, it worked, but at the moment there is no load balancing or auto scale up functinality, so it will break in somepoint.
 
 ***Improvements
 
 - Dynamically update event model files.
+
 - Maintain In Memeory Event Model cache.
+
 - Add more integration tets (automatted).
+
 - Code Coverage with Sonar Cloud etc.
+
 - Run Trivy Container Scan.
+
 - Run Dependency Scan.
 
+- Many more.
+
 Some Useful Referances:
+
 [1] https://www.yugabyte.com/
 [2] https://openliberty.io/guides/microprofile-jwt.html#configuring-microprofile-jwt
 [3] https://openliberty.io/docs/22.0.0.2/reference/feature/mpReactiveStreams-1.0.html
