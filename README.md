@@ -105,11 +105,13 @@ Include your JWT token inside Authorization, Bearer Token Section
 
 ## API Endpoints
 
-### 1) Create Base Model Tables to Store (you can call this multiple times, but it will create only once) 
+### 1) Create Base Model Tables to Store Event Data 
+Can call this multiple times, but it will create tables and keyspaces only once.
 
 https://localhost:9443/relay/kafka/consumer/create-models
 
-### 2) Start Kafka Consumer (This will connect to existing kafka topic - iot-data, this run untill you recieve wake up signal)
+### 2) Start Kafka Consumer 
+This will connect to existing kafka topic - iot-data, and this will run/wait untill it recieve wake up signal (singleton thread).
 
 **https://localhost:9443/relay/kafka/consumer/start**
 
@@ -118,7 +120,7 @@ https://localhost:9443/relay/kafka/consumer/create-models
 
 ![image](https://user-images.githubusercontent.com/3264237/160288705-729c3fca-ba49-4c30-b5f8-ab06968a9a7f.png)
 
-Then you will notice that backend server start consume from the topic.
+Notice that backend server start consume from the topic (iot-data).
 
 ![image](https://user-images.githubusercontent.com/3264237/160288730-bd8ec2f0-0524-4cf9-b1de-6bb346d2d37a.png)
 
@@ -166,6 +168,8 @@ Be mindful to add the time as UTC (it like that at the moment :))
 - I have tested with large set of events, it worked, but at the moment there is no load balancing or auto scale up functinality, so it will break in somepoint.
 
 ## Improvements
+
+- Parameters all possible configurations (ex: Possiblly through a init configuration filter)
 
 - Dynamically update event model files.
 
