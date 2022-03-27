@@ -42,7 +42,8 @@ public class KafkaConsumerController {
             System.out.println("###### Listening to Topic ######");
         }
 
-        CassandraSessionProvider cassandraSessionProvider = new CassandraSessionProvider("host.docker.internal", 9042);
+        final CassandraSessionProvider cassandraSessionProvider =
+                new CassandraSessionProvider("host.docker.internal", 9042);
 
 //        int noMessageToFetch = 0;
         try (final Cluster cluster = cassandraSessionProvider.getCluster(); final Session session = cluster.connect()) {
@@ -88,4 +89,12 @@ public class KafkaConsumerController {
             return "Consumer Already Stopped";
         }
     }
+
+    public static void createModels() {
+        CassandraSessionProvider cassandraSessionProvider = new CassandraSessionProvider("host.docker.internal", 9042);
+        try (final Cluster cluster = cassandraSessionProvider.getCluster(); final Session session = cluster.connect()) {
+            DatabaseAccessUtil.createModels(session);
+        }
+    }
+
 }

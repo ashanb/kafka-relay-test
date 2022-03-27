@@ -74,7 +74,7 @@ class KafkaConsumerUnitTest {
         try (Cluster cluster = cassandraSessionProvider.getCluster()) {
             cluster.connect();
         } catch (Exception exception) {
-            System.out.printf("consuming record test ignored::");
+            System.out.printf("poll exception test ignored::");
             return;
         }
 
