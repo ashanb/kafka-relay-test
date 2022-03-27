@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration name="Log4j2Configuration">
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout alwaysWriteExceptions="false" charset="UTF-8" disableAnsi="true"
+                           pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %p %notEmpty{[%marker]} %T %X{request.id} %C.%M() : %m%n"/>
+            <LevelRangeFilter minLevel="warn" maxLevel="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+        </Console>
+        <Console name="ConsoleErrorAppender" target="SYSTEM_ERR">
+            <PatternLayout alwaysWriteExceptions="false" charset="UTF-8" disableAnsi="true"
+                           pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %p %notEmpty{[%marker]} %T %X{request.id} %C.%M() : %m%n%ex"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="ConsoleAppender" level="${sys:odp.log.level:-info}"/>
+            <AppenderRef ref="ConsoleErrorAppender" level="info"/>
+        </Root>
+    </Loggers>
+
+</Configuration>

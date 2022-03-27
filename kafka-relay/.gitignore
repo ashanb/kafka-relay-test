@@ -1,0 +1,10 @@
+**/.project
+**/.settings
+**/.classpath
+.idea
+target
+*.iml
+*.ipr
+**/build/gen/
+
+boot/iot-spark-processor
