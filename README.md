@@ -91,7 +91,7 @@ if login success you will get something similar
 Copy the JWT toekn for future requests.
 
 4. Postman Collection for supported endpoints.
-Please check the uploaded postman collection file in \kafka-relay-test\kafka-relay\boot\xxx.json
+Please check the uploaded postman collection file in \kafka-relay-test\kafka-relay\boot\kafka - Relay.postman_collection.json
 
 ![image](https://user-images.githubusercontent.com/3264237/160288363-84165959-8c87-4409-82b4-b04989dec01a.png)
 
@@ -144,8 +144,7 @@ Be mindful to add the time as UTC (it like that at the moment :))
 - Toeken Validation is not a direct part of this project, that's why it's in boot :)
 - Yugabyte taken as the database as it contains all three dbs (NoSQL: Cassandra, Relational: Postgress, In Mememory: Redis)
 - Cassandra DB taken to store the Incoming IOT Data (iot_event_data_tab), Cassandra known for FAST DB Writes.
-
- ![image](https://user-images.githubusercontent.com/3264237/160289185-99de1c98-11ff-41d2-8c61-78db25af73ae.png)
+![image](https://user-images.githubusercontent.com/3264237/160290659-8b757abd-762f-42dd-8dae-ab7c39851953.png)
 
 - Thought to use "Postgress DB" as persistent Event Model information storing. (but couldn't complete :/)
 - Thought to use "Redis DB" as fast access cache Event Model file store (but couldn't complete :/), Idea was to flush the Redis DB in a event of staructure change.
