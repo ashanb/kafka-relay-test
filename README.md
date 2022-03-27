@@ -1,5 +1,5 @@
 ### Technologies Used:
-- Kafka 
+- Apache Kafka 
 - Open Liberty 19
 - Docker
 - Java 11
@@ -10,13 +10,13 @@
 - Distributed DB Yugabyte (Cassandra, Postgres and Redis)
 
 ### Testing Tools Used
-- Junit
+- Apache Junit
 - Postman
-- Jmeter
+- Apache Jmeter
 
 ### Third Part Helper Tools Used
 
-- Inteliji 
+- IntelliJ IDEA 2021.3.3 (Community Edition)
 - DBeaver Lite 22.0.0
 - Table Plus
 
