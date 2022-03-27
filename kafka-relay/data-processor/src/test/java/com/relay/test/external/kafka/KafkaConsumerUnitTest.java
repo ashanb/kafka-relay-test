@@ -1,5 +1,6 @@
 package com.relay.test.external.kafka;
 
+import com.datastax.driver.core.Cluster;
 import com.relay.test.internal.CassandraSessionProvider;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.MockConsumer;
@@ -32,11 +33,11 @@ class KafkaConsumerUnitTest {
 
     @Test
     void whenStartingBySubscribingToTopic() {
+        CassandraSessionProvider cassandraSessionProvider =
+                new CassandraSessionProvider("localhost", 9042);
 
-        try {
-            CassandraSessionProvider cassandraSessionProvider =
-                    new CassandraSessionProvider("host.docker.internal", 9042);
-            cassandraSessionProvider.getCluster().connect();
+        try (Cluster cluster = cassandraSessionProvider.getCluster()) {
+            cluster.connect();
         } catch (Exception exception) {
             System.out.printf("consuming record test ignored::");
             return;
@@ -66,6 +67,17 @@ class KafkaConsumerUnitTest {
 
     @Test
     void whenStartingBySubscribingToTopicAndExceptionOccurs_thenExpectExceptionIsHandledCorrectly() {
+
+        CassandraSessionProvider cassandraSessionProvider =
+                new CassandraSessionProvider("localhost", 9042);
+
+        try (Cluster cluster = cassandraSessionProvider.getCluster()) {
+            cluster.connect();
+        } catch (Exception exception) {
+            System.out.printf("consuming record test ignored::");
+            return;
+        }
+
         // GIVEN
         consumer.schedulePollTask(() -> consumer.setPollException(new KafkaException("poll exception")));
 

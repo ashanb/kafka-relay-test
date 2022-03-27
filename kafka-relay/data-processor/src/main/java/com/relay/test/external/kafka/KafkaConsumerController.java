@@ -44,10 +44,9 @@ public class KafkaConsumerController {
         }
 
         CassandraSessionProvider cassandraSessionProvider = new CassandraSessionProvider("host.docker.internal", 9042);
-        Cluster cluster = cassandraSessionProvider.getCluster();
 
 //        int noMessageToFetch = 0;
-        try (final Session session = cluster.connect()) {
+        try (final Cluster cluster = cassandraSessionProvider.getCluster(); final Session session = cluster.connect()) {
             while (true) {
                 final ConsumerRecords<Long, String> consumerRecords = consumer.poll(100);
                 if (consumerRecords.count() == 0) {
@@ -77,9 +76,6 @@ public class KafkaConsumerController {
             consumerSwitch = false;
             consumer.close();
             consumer = null;
-            if (cluster != null) {
-                cluster.close();
-            }
             System.out.println("Consumer Stopped.");
         }
     }
