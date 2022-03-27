@@ -20,7 +20,7 @@ public class ConsumerResource {
         // todo: application context
         try {
             setupConsumer();
-            Thread newThread = new Thread(KafkaConsumerController::startConsume);
+            final Thread newThread = new Thread(KafkaConsumerController::startConsume);
             newThread.start();
             return Response.ok().entity(Json.createObjectBuilder()
                     .add("Status", "Signal Sent!").build().toString()).build();

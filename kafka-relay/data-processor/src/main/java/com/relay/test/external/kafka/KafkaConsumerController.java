@@ -17,7 +17,6 @@ public class KafkaConsumerController {
     private static final Logger LOG = LogManager.getLogger(KafkaConsumerController.class);
     static boolean consumerSwitch = false;
     private static Consumer<Long, String> consumer;
-    private static boolean continueOnError = false;
 
     public static void setupConsumer() {
         if (consumer == null) {

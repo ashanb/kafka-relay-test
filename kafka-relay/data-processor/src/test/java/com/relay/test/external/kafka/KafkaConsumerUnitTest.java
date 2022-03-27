@@ -34,7 +34,7 @@ class KafkaConsumerUnitTest {
     @Test
     void whenStartingBySubscribingToTopic() {
         CassandraSessionProvider cassandraSessionProvider =
-                new CassandraSessionProvider("localhost", 9042);
+                new CassandraSessionProvider("host.docker.internal", 9042);
 
         try (Cluster cluster = cassandraSessionProvider.getCluster()) {
             cluster.connect();
@@ -69,7 +69,7 @@ class KafkaConsumerUnitTest {
     void whenStartingBySubscribingToTopicAndExceptionOccurs_thenExpectExceptionIsHandledCorrectly() {
 
         CassandraSessionProvider cassandraSessionProvider =
-                new CassandraSessionProvider("localhost", 9042);
+                new CassandraSessionProvider("host.docker.internal", 9042);
 
         try (Cluster cluster = cassandraSessionProvider.getCluster()) {
             cluster.connect();

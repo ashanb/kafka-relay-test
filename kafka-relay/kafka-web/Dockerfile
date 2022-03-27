@@ -4,10 +4,10 @@ ARG VERSION=1.0
 ARG REVISION=SNAPSHOT
 
 LABEL \
-  org.opencontainers.image.authors="My Name" \
-  org.opencontainers.image.vendor="Open Liberty" \
+  org.opencontainers.image.authors="Ashan Bakmeedeniya" \
+  org.opencontainers.image.vendor="Relay" \
   org.opencontainers.image.url="local" \
-  org.opencontainers.image.source="https://github.com/OpenLiberty/guide-microprofile-reactive-messaging" \
+  org.opencontainers.image.source="https://github.com/ashanb/kafka-relay-test" \
   org.opencontainers.image.version="$VERSION" \
   org.opencontainers.image.revision="$REVISION" \
   vendor="Open Liberty" \
