@@ -35,9 +35,11 @@ see: https://download.yugabyte.com/#docker
 
 Update root "docker-compose.yml" as below (update 3 kafka brokers to work with outer network container/s)
 
-**KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka_0:29092,PLAINTEXT_HOST://host.docker.internal:9092
-**KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka_1:29093,PLAINTEXT_HOST://host.docker.internal:9094
-**KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka_2:29094,PLAINTEXT_HOST://host.docker.internal:9095
+**KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka_0:29092,PLAINTEXT_HOST://host.docker.internal:9092**
+
+**KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka_1:29093,PLAINTEXT_HOST://host.docker.internal:9094**
+
+**KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka_2:29094,PLAINTEXT_HOST://host.docker.internal:9095**
 
 please follow steps mentioned in that repo read_me.md to run the Kafka Producer.
 
