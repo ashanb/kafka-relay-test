@@ -1,6 +1,7 @@
 package com.relay.test.external.kafka;
 
 import com.datastax.driver.core.Cluster;
+import com.relay.test.ApiRequest;
 import com.relay.test.internal.CassandraSessionProvider;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.MockConsumer;
@@ -12,6 +13,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.ResourceBundle;
 
 import static com.relay.test.external.kafka.KafkaConsumerController.*;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
@@ -33,8 +35,10 @@ class KafkaConsumerUnitTest {
 
     @Test
     void whenStartingBySubscribingToTopic() {
-        CassandraSessionProvider cassandraSessionProvider =
-                new CassandraSessionProvider("host.docker.internal", 9042);
+        //ApiRequest.setApplicationContext(ResourceBundle.getBundle(""));
+
+        final CassandraSessionProvider cassandraSessionProvider =
+                new CassandraSessionProvider("localhost", 9045);
 
         try (Cluster cluster = cassandraSessionProvider.getCluster()) {
             cluster.connect();
@@ -67,9 +71,10 @@ class KafkaConsumerUnitTest {
 
     @Test
     void whenStartingBySubscribingToTopicAndExceptionOccurs_thenExpectExceptionIsHandledCorrectly() {
-
-        CassandraSessionProvider cassandraSessionProvider =
-                new CassandraSessionProvider("host.docker.internal", 9042);
+        //ApiRequest.setApplicationContext(ResourceBundle.getBundle(""));
+        
+        final CassandraSessionProvider cassandraSessionProvider =
+                new CassandraSessionProvider("localhost", 9045);
 
         try (Cluster cluster = cassandraSessionProvider.getCluster()) {
             cluster.connect();

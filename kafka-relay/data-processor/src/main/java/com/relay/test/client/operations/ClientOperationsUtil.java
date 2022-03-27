@@ -2,12 +2,14 @@ package com.relay.test.client.operations;
 
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Session;
+import com.relay.test.ApiRequest;
 import com.relay.test.internal.CassandraSessionProvider;
 import com.relay.test.internal.DatabaseAccessUtil;
 
 public class ClientOperationsUtil {
     public static Object getAggregate(String type, Long clusterId, String from, String to, OperationType operationType){
-        CassandraSessionProvider cassandraSessionProvider = new CassandraSessionProvider("host.docker.internal", 9042);
+        final CassandraSessionProvider cassandraSessionProvider =
+                new CassandraSessionProvider(ApiRequest.getCassandraHost(), ApiRequest.getCassandraPort());
         try (Cluster cluster = cassandraSessionProvider.getCluster(); Session session = cluster.connect()) {
 
             if (operationType == OperationType.MIN) {

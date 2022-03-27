@@ -11,6 +11,7 @@
     <modules>
         <module>data-processor</module>
         <module>kafka-web</module>
+        <module>common-api</module>
     </modules>
 
     <name>Dynamic Kafka Consumer Application</name>
