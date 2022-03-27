@@ -1,0 +1,321 @@
+{
+	"info": {
+		"_postman_id": "270e0075-2ae1-46f4-a69d-8e8c46e157f9",
+		"name": "kafka - Relay",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "JWT Roles",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Admin- Kafka Consumer - CreateModels",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJLdExBVGE4SUtjeW94Mmo5amxQTHpBMEdiTGhOUnNqUUR5U1o3eFMxUUFjIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJ0b2tlbl90eXBlIjoiQmVhcmVyIiwiYXVkIjoic3lzdGVtU2VydmljZSIsInN1YiI6ImJvYiIsInVwbiI6ImJvYiIsImdyb3VwcyI6WyJhZG1pbiIsInVzZXIiXSwiaXNzIjoiaHR0cDovL29wZW5saWJlcnR5LmlvIiwiZXhwIjoxNjQ4NDY1MDIwLCJpYXQiOjE2NDgzNzg2MjB9.YizMoVCm2OsZYHHrPHJjgCx4fFaA_v3FnVeiqMeJGS2h00OshntL7V4myTXk92tScu06Y8FSImxkr4_AhxW3CuckmFeGN0_lY7wifKHb4-k0btQtiz8P-QQskbcUlAfS1MdVMttX9kr3jDzkONFXLWQDyvDge2E-mEXHY0B6mp5XVOYb88-SufOZlBNUgu_Lrxb-XrOVyTKRSxyxMgOyRFox0ll5SSDURoVPPRS1qD7XCx7zz-V8V9AlhoYRQK-Qf7d7h_Yxy0qpHS74gGfZNhH1WV2DEOny7ARZaLC6jA9Y0WEcnSRXL9JeJXqNPJKMp3u-5gdlzNY9axCEvyiOmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:9443/relay/kafka/consumer/create-models",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9443",
+					"path": [
+						"relay",
+						"kafka",
+						"consumer",
+						"create-models"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin- Kafka Consumer Start Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJLdExBVGE4SUtjeW94Mmo5amxQTHpBMEdiTGhOUnNqUUR5U1o3eFMxUUFjIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJ0b2tlbl90eXBlIjoiQmVhcmVyIiwiYXVkIjoic3lzdGVtU2VydmljZSIsInN1YiI6ImJvYiIsInVwbiI6ImJvYiIsImdyb3VwcyI6WyJhZG1pbiIsInVzZXIiXSwiaXNzIjoiaHR0cDovL29wZW5saWJlcnR5LmlvIiwiZXhwIjoxNjQ4NDY1MDIwLCJpYXQiOjE2NDgzNzg2MjB9.YizMoVCm2OsZYHHrPHJjgCx4fFaA_v3FnVeiqMeJGS2h00OshntL7V4myTXk92tScu06Y8FSImxkr4_AhxW3CuckmFeGN0_lY7wifKHb4-k0btQtiz8P-QQskbcUlAfS1MdVMttX9kr3jDzkONFXLWQDyvDge2E-mEXHY0B6mp5XVOYb88-SufOZlBNUgu_Lrxb-XrOVyTKRSxyxMgOyRFox0ll5SSDURoVPPRS1qD7XCx7zz-V8V9AlhoYRQK-Qf7d7h_Yxy0qpHS74gGfZNhH1WV2DEOny7ARZaLC6jA9Y0WEcnSRXL9JeJXqNPJKMp3u-5gdlzNY9axCEvyiOmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:9443/relay/kafka/consumer/start",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9443",
+					"path": [
+						"relay",
+						"kafka",
+						"consumer",
+						"start"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin- Kafka Consumer Stop",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJLdExBVGE4SUtjeW94Mmo5amxQTHpBMEdiTGhOUnNqUUR5U1o3eFMxUUFjIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJ0b2tlbl90eXBlIjoiQmVhcmVyIiwiYXVkIjoic3lzdGVtU2VydmljZSIsInN1YiI6ImJvYiIsInVwbiI6ImJvYiIsImdyb3VwcyI6WyJhZG1pbiIsInVzZXIiXSwiaXNzIjoiaHR0cDovL29wZW5saWJlcnR5LmlvIiwiZXhwIjoxNjQ4NDY1MDIwLCJpYXQiOjE2NDgzNzg2MjB9.YizMoVCm2OsZYHHrPHJjgCx4fFaA_v3FnVeiqMeJGS2h00OshntL7V4myTXk92tScu06Y8FSImxkr4_AhxW3CuckmFeGN0_lY7wifKHb4-k0btQtiz8P-QQskbcUlAfS1MdVMttX9kr3jDzkONFXLWQDyvDge2E-mEXHY0B6mp5XVOYb88-SufOZlBNUgu_Lrxb-XrOVyTKRSxyxMgOyRFox0ll5SSDURoVPPRS1qD7XCx7zz-V8V9AlhoYRQK-Qf7d7h_Yxy0qpHS74gGfZNhH1WV2DEOny7ARZaLC6jA9Y0WEcnSRXL9JeJXqNPJKMp3u-5gdlzNY9axCEvyiOmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:9443/relay/kafka/consumer/stop",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9443",
+					"path": [
+						"relay",
+						"kafka",
+						"consumer",
+						"stop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User - Sensor - Min",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJLdExBVGE4SUtjeW94Mmo5amxQTHpBMEdiTGhOUnNqUUR5U1o3eFMxUUFjIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJ0b2tlbl90eXBlIjoiQmVhcmVyIiwiYXVkIjoic3lzdGVtU2VydmljZSIsInN1YiI6ImJvYiIsInVwbiI6ImJvYiIsImdyb3VwcyI6WyJhZG1pbiIsInVzZXIiXSwiaXNzIjoiaHR0cDovL29wZW5saWJlcnR5LmlvIiwiZXhwIjoxNjQ4NDY1MDIwLCJpYXQiOjE2NDgzNzg2MjB9.YizMoVCm2OsZYHHrPHJjgCx4fFaA_v3FnVeiqMeJGS2h00OshntL7V4myTXk92tScu06Y8FSImxkr4_AhxW3CuckmFeGN0_lY7wifKHb4-k0btQtiz8P-QQskbcUlAfS1MdVMttX9kr3jDzkONFXLWQDyvDge2E-mEXHY0B6mp5XVOYb88-SufOZlBNUgu_Lrxb-XrOVyTKRSxyxMgOyRFox0ll5SSDURoVPPRS1qD7XCx7zz-V8V9AlhoYRQK-Qf7d7h_Yxy0qpHS74gGfZNhH1WV2DEOny7ARZaLC6jA9Y0WEcnSRXL9JeJXqNPJKMp3u-5gdlzNY9axCEvyiOmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:9443/relay/client/sensors/min?from=2022-03-27T13:27:31.925494Z&to=2022-03-27T13:27:36.928579Z&type=TEMPERATURE&cluster=1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9443",
+					"path": [
+						"relay",
+						"client",
+						"sensors",
+						"min"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2022-03-27T13:27:31.925494Z",
+							"description": "SET UTC Time"
+						},
+						{
+							"key": "to",
+							"value": "2022-03-27T13:27:36.928579Z",
+							"description": "SET UTC Time"
+						},
+						{
+							"key": "type",
+							"value": "TEMPERATURE"
+						},
+						{
+							"key": "cluster",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User - Sensor - Max",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJLdExBVGE4SUtjeW94Mmo5amxQTHpBMEdiTGhOUnNqUUR5U1o3eFMxUUFjIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJ0b2tlbl90eXBlIjoiQmVhcmVyIiwiYXVkIjoic3lzdGVtU2VydmljZSIsInN1YiI6ImJvYiIsInVwbiI6ImJvYiIsImdyb3VwcyI6WyJhZG1pbiIsInVzZXIiXSwiaXNzIjoiaHR0cDovL29wZW5saWJlcnR5LmlvIiwiZXhwIjoxNjQ4NDY1MDIwLCJpYXQiOjE2NDgzNzg2MjB9.YizMoVCm2OsZYHHrPHJjgCx4fFaA_v3FnVeiqMeJGS2h00OshntL7V4myTXk92tScu06Y8FSImxkr4_AhxW3CuckmFeGN0_lY7wifKHb4-k0btQtiz8P-QQskbcUlAfS1MdVMttX9kr3jDzkONFXLWQDyvDge2E-mEXHY0B6mp5XVOYb88-SufOZlBNUgu_Lrxb-XrOVyTKRSxyxMgOyRFox0ll5SSDURoVPPRS1qD7XCx7zz-V8V9AlhoYRQK-Qf7d7h_Yxy0qpHS74gGfZNhH1WV2DEOny7ARZaLC6jA9Y0WEcnSRXL9JeJXqNPJKMp3u-5gdlzNY9axCEvyiOmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:9443/relay/client/sensors/max?from=2022-03-27T13:27:31.925494Z&to=2022-03-27T13:27:36.928579Z&type=TEMPERATURE&cluster=1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9443",
+					"path": [
+						"relay",
+						"client",
+						"sensors",
+						"max"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2022-03-27T13:27:31.925494Z",
+							"description": "SET UTC Time"
+						},
+						{
+							"key": "to",
+							"value": "2022-03-27T13:27:36.928579Z",
+							"description": "SET UTC Time"
+						},
+						{
+							"key": "type",
+							"value": "TEMPERATURE"
+						},
+						{
+							"key": "cluster",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User - Sensor - Avg",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJLdExBVGE4SUtjeW94Mmo5amxQTHpBMEdiTGhOUnNqUUR5U1o3eFMxUUFjIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJ0b2tlbl90eXBlIjoiQmVhcmVyIiwiYXVkIjoic3lzdGVtU2VydmljZSIsInN1YiI6ImJvYiIsInVwbiI6ImJvYiIsImdyb3VwcyI6WyJhZG1pbiIsInVzZXIiXSwiaXNzIjoiaHR0cDovL29wZW5saWJlcnR5LmlvIiwiZXhwIjoxNjQ4NDY1MDIwLCJpYXQiOjE2NDgzNzg2MjB9.YizMoVCm2OsZYHHrPHJjgCx4fFaA_v3FnVeiqMeJGS2h00OshntL7V4myTXk92tScu06Y8FSImxkr4_AhxW3CuckmFeGN0_lY7wifKHb4-k0btQtiz8P-QQskbcUlAfS1MdVMttX9kr3jDzkONFXLWQDyvDge2E-mEXHY0B6mp5XVOYb88-SufOZlBNUgu_Lrxb-XrOVyTKRSxyxMgOyRFox0ll5SSDURoVPPRS1qD7XCx7zz-V8V9AlhoYRQK-Qf7d7h_Yxy0qpHS74gGfZNhH1WV2DEOny7ARZaLC6jA9Y0WEcnSRXL9JeJXqNPJKMp3u-5gdlzNY9axCEvyiOmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:9443/relay/client/sensors/avg?from=2022-03-27T13:27:31.925494Z&to=2022-03-27T13:27:36.928579Z&type=TEMPERATURE&cluster=1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9443",
+					"path": [
+						"relay",
+						"client",
+						"sensors",
+						"avg"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2022-03-27T13:27:31.925494Z",
+							"description": "SET UTC Time"
+						},
+						{
+							"key": "to",
+							"value": "2022-03-27T13:27:36.928579Z",
+							"description": "SET UTC Time"
+						},
+						{
+							"key": "type",
+							"value": "TEMPERATURE"
+						},
+						{
+							"key": "cluster",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User - Sensor - Median (To Be Implemented)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJLdExBVGE4SUtjeW94Mmo5amxQTHpBMEdiTGhOUnNqUUR5U1o3eFMxUUFjIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJ0b2tlbl90eXBlIjoiQmVhcmVyIiwiYXVkIjoic3lzdGVtU2VydmljZSIsInN1YiI6ImJvYiIsInVwbiI6ImJvYiIsImdyb3VwcyI6WyJhZG1pbiIsInVzZXIiXSwiaXNzIjoiaHR0cDovL29wZW5saWJlcnR5LmlvIiwiZXhwIjoxNjQ4NDY1MDIwLCJpYXQiOjE2NDgzNzg2MjB9.YizMoVCm2OsZYHHrPHJjgCx4fFaA_v3FnVeiqMeJGS2h00OshntL7V4myTXk92tScu06Y8FSImxkr4_AhxW3CuckmFeGN0_lY7wifKHb4-k0btQtiz8P-QQskbcUlAfS1MdVMttX9kr3jDzkONFXLWQDyvDge2E-mEXHY0B6mp5XVOYb88-SufOZlBNUgu_Lrxb-XrOVyTKRSxyxMgOyRFox0ll5SSDURoVPPRS1qD7XCx7zz-V8V9AlhoYRQK-Qf7d7h_Yxy0qpHS74gGfZNhH1WV2DEOny7ARZaLC6jA9Y0WEcnSRXL9JeJXqNPJKMp3u-5gdlzNY9axCEvyiOmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:9443/relay/client/sensors/median?from=2022-03-27T13:27:31.925494Z&to=2022-03-27T13:27:36.928579Z&type=TEMPERATURE&cluster=1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9443",
+					"path": [
+						"relay",
+						"client",
+						"sensors",
+						"median"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2022-03-27T13:27:31.925494Z",
+							"description": "SET UTC Time"
+						},
+						{
+							"key": "to",
+							"value": "2022-03-27T13:27:36.928579Z",
+							"description": "SET UTC Time"
+						},
+						{
+							"key": "type",
+							"value": "TEMPERATURE"
+						},
+						{
+							"key": "cluster",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
